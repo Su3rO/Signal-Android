@@ -8,6 +8,11 @@
                 android:label="Access to TextSecure Secrets"
                 android:protectionLevel="signature" />
 
+    <!-- Permission required to bind to SignalBridgeService -->
+    <permission android:name="org.thoughtcrime.securesms.ACCESS_BRIDGE"
+                android:label="Access to SignalBridgeService"
+                android:protectionLevel="signature" />
+
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
     <uses-feature android:name="android.hardware.location" android:required="false"/>
@@ -1215,6 +1220,11 @@
         android:name=".service.BackupProgressService"
         android:foregroundServiceType="dataSync"
         android:exported="false"/>
+
+    <service
+        android:name=".service.SignalBridgeService"
+        android:exported="true"
+        android:permission="org.thoughtcrime.securesms.ACCESS_BRIDGE"/>
 
     <service
         android:name=".gcm.FcmFetchBackgroundService"
